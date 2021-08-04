@@ -1,0 +1,43 @@
+{
+    "name": "rocunha09/buscador-cursos",
+    "description": "Buscador de cursos do site da Alura.",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Rafael Cunha",
+            "email": "teste@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.5",
+        "symfony/dom-crawler": "^5.1",
+        "symfony/css-selector": "^5.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "PHPComposer\\BuscadorDeCursos\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "squizlabs/php_codesniffer": "*",
+        "phan/phan": "^5.0"
+    },
+    "scripts": {
+        "ls": "dir",
+        "test": "phpunit tests\\TestBuscadorDeCursos.php",
+        "cs": "phpcs --standard=PSR12 src/",
+        "phan": "phan --allow-polyfill-parser",
+        "check": [
+            "@phan",
+            "@cs",
+            "@test"
+        ],
+        "post-update-cmd": [
+            "@test"
+        ]
+    },
+    "scripts-descriptions": {
+        "check": "Roda as verificações do código. PHAN, PHPCS e PHPUNIT"
+    }
+}
